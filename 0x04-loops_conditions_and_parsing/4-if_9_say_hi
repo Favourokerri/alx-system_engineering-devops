@@ -4,11 +4,10 @@
 counter=1
 while [ $counter -le 10 ]
 do
+	echo "Best School"
 	if [ $counter -eq 9 ]
 	then
 		echo "Hi"
-	else
-		echo "Best School"
 	fi
 	counter=$((counter + 1))
 done
