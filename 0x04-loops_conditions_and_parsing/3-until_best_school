@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Untill loop that prints a string 10 times
 
 counter=1
 until [ $counter -gt 10 ]
