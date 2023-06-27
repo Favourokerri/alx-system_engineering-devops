@@ -2,9 +2,9 @@
 #printing hours and minutes
 
 Hour=0
-echo "Hour: $Hour"
-while [ $Hour -le 11 ]
+while [ $Hour -le 12 ]
 do
+	echo "Hour: $Hour"
 	counter=1
 	while [ $counter -le 59 ]
 	do
@@ -12,6 +12,5 @@ do
 		counter=$((counter + 1))
 	done
 	Hour=$((Hour + 1))
-	echo "Hour: $Hour"
 done
 
