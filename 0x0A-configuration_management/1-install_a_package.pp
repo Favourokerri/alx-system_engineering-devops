@@ -1,9 +1,5 @@
-# install flask using puppet
-
-class { 'python':
-  pip3 => true,
-}
-python::pip { 'Flask':
-  ensure => latest,
-  require => Class['python'],
+# Using Puppet, install flask from pip3
+package { 'flask':
+  ensure   => '2.1.0',
+  provider => 'pip3',
 }
