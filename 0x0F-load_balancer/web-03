@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# server 01 login
+
+ssh ubuntu@54.208.183.190
