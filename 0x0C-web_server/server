@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #login to my remote server
 
-ssh -i ~/.ssh/id_rsa ubuntu@54.144.131.243
+ssh -i ~/.ssh/id_rsa ubuntu@54.152.168.149
