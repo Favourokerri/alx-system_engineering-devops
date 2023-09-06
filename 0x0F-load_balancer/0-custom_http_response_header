@@ -9,6 +9,6 @@ sudo service nginx start
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 newlines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
 sudo sed -i "55i $newlines" /etc/nginx/sites-available/default
-sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo sed -i "52i\add_header X-Served-By $HOSTNAME always;" /etc/nginx/sites-available/default
 sudo service nginx restart
 sudo service nginx reload
