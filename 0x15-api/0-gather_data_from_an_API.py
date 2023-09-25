@@ -1,24 +1,31 @@
 #!/usr/bin/python3
-"""
-Pings a To-Do API for data and displays tasks completed
-and tasks done for a specified user
-"""
+"""Accessing a REST API for todo lists of employees"""
+
 import requests
-from sys import argv
+import sys
+
 
 if __name__ == '__main__':
-    user_id = argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
-                        format(user_id), verify=False).json()
-    todo = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
-                        format(user_id), verify=False).json()
+    employeeId = sys.argv[1]
+    baseUrl = "https://jsonplaceholder.typicode.com/users"
+    url = baseUrl + "/" + employeeId
 
-    completed_tasks = []
-    for task in todo:
-        if task.get('completed') is True:
-            completed_tasks.append(task.get('title'))
+    response = requests.get(url)
+    employeeName = response.json().get('name')
+
+    todoUrl = url + "/todos"
+    response = requests.get(todoUrl)
+    tasks = response.json()
+    done = 0
+    done_tasks = []
+
+    for task in tasks:
+        if task.get('completed'):
+            done_tasks.append(task)
+            done += 1
+
     print("Employee {} is done with tasks({}/{}):"
-          .format(user.get('name'), len(completed_tasks), len(todo)))
+          .format(employeeName, done, len(tasks)))
 
-    for task in completed_tasks:
-        print("\t {}".format(task))
+    for task in done_tasks:
+        print("\t {}".format(task.get('title')))
