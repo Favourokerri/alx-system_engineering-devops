@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# load server login
-
-ssh ubuntu@54.197.45.243
